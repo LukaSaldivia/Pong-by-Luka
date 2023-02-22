@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   cursor: default;
+  /* outline: 1px solid green; */
 }
 
 ::selection{
@@ -205,6 +206,9 @@ div.game{
   gap: 2em;
   opacity: 0;
   transition: .3s ease-in;
+  width: fit-content;
+  position: relative;
+  scale: .8;
 
 }
 
@@ -213,47 +217,32 @@ div.game.started{
 }
 
 div.scores{
-  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  align-items: center;
+  gap: 395px;
+  position: absolute;
 }
 
 div[id^=scorePl]{
 
   position: relative;
-  font-size: 100px;
-  height: 100px;
-  /* aspect-ratio: 1/1; */
-  /* outline: 1px solid green; */
-}
-
-div[id^=scorePl] div{
-  position: absolute;
-  inset: 0;
+  font-size: 40px;
+  width: fit-content;
   color: white;
-  
+  opacity: .3;
 }
 
-div[id^=scorePl] div.actual{
-  animation: appear .3s both linear ;
-}
-
-@keyframes appear {
-  0%{
-    top:90px;
-  }
+div.scores div.mobile:first-child{
+  rotate: 180deg;
 }
 
 
-div[id^=scorePl] div.new{
-  animation: score .3s both linear;
-}
-
-@keyframes score {
-  100%{
-    top:-90px;
-    color: yellow;
-    opacity: 0;
-  }
+div.mobileControls{
+  position: absolute;
+  /* background-color: red; */
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
 }
