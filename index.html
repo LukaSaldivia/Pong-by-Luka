@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="keywords" content="Pong Pong by Luka Luka Luka Saldivia Juego de Ping Pong Ping Pong
+    Juego en línea
+    Juego HTML5
+    Juego JavaScript
+    Juego en 2D
+    PowerUps de Ping Pong
+    Juego multijugador
+    Arcade
+    Deportes
+    Pelota y paleta
+    Competencia
+    Jugabilidad rápida
+    Reto
+    Entretenimiento
+    Habilidad
+    Modo de juego multijugador
+    Marcador
+    Gráficos en 2D
+    Controles simples
+    Partida rápida
+    Adictivo
+    Divertido
+    Desafiante
+    Estratégico
+    Habilidad y precisión
+    Juego de mesa digital
+    Acción
+    Diversión asegurada">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pong</title>
+    <script defer src="main.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="images/icon.ico" type="image/x-icon">
+  </head>
+  <body>
+    <div id="mainMenu">
+      <div class="title">
+        <h1>P<span style="opacity: 0; font-size: 90px; margin: 0 20px;">O</span>NG</h1>
+        <div class="subtitle">
+          <p id="version">Undefined</p>
+          <p>by Luka</p>
+        </div>
+      </div>
+        <div class="buttons">
+          <button id="iniciarBtn">Jugar</button>
+          <button onclick="openWindow('.help')">Ayuda</button>
+          <button onclick="openWindow('.config')">Configuración</button>
+        </div>
+    </div>
+    <div class="game">
+      <canvas id="c">
+      </canvas>
+      <!-- <div id="pauseMenu"></div> -->
+      <div class="scores">
+        <div id="scorePl1">0</div>
+        <div id="scorePl2">0</div>
+      </div>
+
+    </div>
+    <div class="mobileControls">
+      <div id="control1"></div>
+      <div id="control2"></div>
+      <div id="control3"></div>
+      <div id="control4"></div>
+    </div>
+
+    <div class="pop-up help">
+      <button onclick="closeWindow('.help')"></button>
+      <section>
+        <h1 class="title">Controles</h1>
+        <div class="content">
+          <p>Los controles son W y D para el jugador de arriba, y [<] y [>] para el jugador de abajo</p>
+        </div>
+      </section>
+      <section>
+        <h1 class="title">Powerups</h1>
+        <div class="content">
+          <div>
+          <h3>Tipos</h3>
+          <div class="targets">
+
+            <div class="target">
+              <div class="bubble positive"></div>
+              <div class="info">Afecta positivamente al jugador</div>
+
+            </div>
+            <div class="target">
+              <div class="bubble negative"></div>
+              <div class="info">Afecta negativamente al jugador</div>
+
+            </div>
+            <div class="target">
+              <div class="bubble neutral"></div>
+              <div class="info">Afecta de igual forma a los jugadores</div>
+
+            </div>
+          </div>
+          </div>
+          <div>
+          <h3>Características</h3>
+          <div id="powerups-box" class="each">
+          </div>
+          </div>
+      </section>
+
+    </div>
+
+    <div class="pop-up config">
+      <button onclick="closeWindow('.config')"></button>
+      <div class="content">
+        
+      </div>
+    </div>
+
+  </body>
+</html>
