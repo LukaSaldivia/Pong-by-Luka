@@ -1,0 +1,236 @@
+@import url(pop-up.css);
+
+*,*::after,*::before{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  cursor: default;
+  /* outline: 1px solid green; */
+}
+
+:root{
+  --black : #060606;
+  --white : #eee;
+}
+
+::selection{
+  background-color: yellow;
+  color: var(--black);
+}
+
+body{
+  min-height: 100vh;
+  display: grid;
+  place-content: center;
+  background-color: var(--black);
+  /* background: radial-gradient(#8d198d,#660866); */
+  backdrop-filter: blur(3px);
+  overflow-x: hidden;
+}
+
+#mainMenu{
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  translate: -50% -50%;
+  width: 40%;
+  display: grid;
+  place-content: center;
+  color: var(--white);
+  z-index: 2;
+  transition: all .3s;  
+}
+
+
+
+
+
+#mainMenu .title{
+  /* outline: 1px solid blue; */
+  margin: 0 auto;
+  width: 100%;
+}
+
+#mainMenu .title #svg59{
+  fill: var(--white);
+  width: 100%;
+  height: fit-content;
+  transition: translate 1.5s ease-out;
+  translate: 0 -100vh;
+}
+
+
+#mainMenu .buttons{
+  display: grid;
+  place-items: center;
+  transition: grid-template-rows .5s, margin-top .5s;
+  
+  grid-template-rows: 0fr;
+  overflow: hidden;
+}
+
+#mainMenu .buttons.active{
+  grid-template-rows: 1fr;
+  margin-top: 2rem;
+}
+
+#mainMenu .buttons>div{
+  /* margin-top: 2rem; */
+  overflow: hidden;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  flex-shrink: 2;
+}
+
+
+
+#mainMenu .buttons>div button{
+  all: unset;
+  border-bottom: .5rem solid red;
+  border-radius: 1rem;
+
+  padding: 1rem .5rem;
+
+
+
+  text-align: center;
+  font-weight: lighter;
+
+  transition: .1s ease-out;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+
+  flex-basis: 0;
+  flex-grow: 3;
+}
+
+#mainMenu .buttons>div :not(#iniciarBtn){
+  border-color: var(--white);
+
+}
+
+
+
+
+#mainMenu .buttons button:hover{
+  border-width: .2rem;
+}
+
+#mainMenu .buttons button:active{
+  border-width: 0;
+}
+
+
+
+#mainMenu.started{
+  opacity: 0;
+  transform: translate(0,-100vh);
+}
+
+
+canvas{
+  transition: .4s;
+  border-radius: 20px;
+  position: relative;
+  background: #FFFFFF08;
+background: radial-gradient(circle, #FFFFFF08 2.6%, #999 3%, #FFFFFF08 3.4%, #FFFFFF08 26.6%, #999 27%, #FFFFFF08 27.4%, #FFFFFF08 38.6%, #999 39%, #FFFFFF08 39.4%, #FFFFFF08 49.6%, #999 50%, #FFFFFF08 50.4%, #FFFFFF08 85.6%, #999 86%, #FFFFFF08 86.4%);
+background-size: 700px 700px;
+background-position: center;
+/*   
+background-color:#025;
+background-image: linear-gradient(#999 2px, transparent 2px),
+linear-gradient(90deg, #999 2px, transparent 2px),
+linear-gradient(rgba(255,255,255,.1) 1px, transparent 1px),
+linear-gradient(90deg, rgba(255,255,255,.1) 1px, transparent 1px);
+background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+background-position:-2px -2px, -2px -2px, -1px -1px, -1px -1px; */
+
+
+}
+
+#pauseMenu{
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index: 1;
+  transition: .1s ease-in;
+}
+
+#pauseMenu.active{
+  background-color: #00000070;
+}
+
+
+
+.goal{
+  /* filter: brightness(200%); */
+  scale: .95;
+  box-shadow:  0 0 30px 15px #FFF;
+  animation: goal .03s infinite;
+  background: radial-gradient(circle, #FFFFFF08 2.6%, white 3%, #FFFFFF08 8%, #FFFFFF08 26.6%, white 27%, #FFFFFF08 32%, #FFFFFF08 38.6%, white 39%, #FFFFFF08 44%, #FFFFFF08 49.6%, white 50%, #FFFFFF08 55%, #FFFFFF08 85.6%, white 86%, #FFFFFF08 91%);
+  background-size: 1000px 1000px;
+  
+}
+
+@keyframes goal {
+  0%{
+    margin-left: 20px;
+  }
+  100%{
+    margin-left: -20px;
+  }
+}
+
+div.game{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2em;
+  opacity: 0;
+  transition: .3s ease-in;
+  width: fit-content;
+  position: relative;
+  
+  /* scale: .8; */
+  
+  
+}
+
+
+div.game.started{
+  opacity: 1;
+}
+
+div.scores{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 395px;
+  position: absolute;
+}
+
+div[id^=scorePl]{
+
+  position: relative;
+  font-size: 40px;
+  width: fit-content;
+  color: white;
+  opacity: .3;
+}
+
+div.scores div.mobile:first-child{
+  rotate: 180deg;
+}
+
+
+div.mobileControls{
+  position: absolute;
+  /* background-color: red; */
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+}
